@@ -6,7 +6,8 @@
   "scripts": {
     "start:dev": "NODE_ENV=development PORT=3000 node index.js",
     "test:web": "NODE_ENV=test mocha './!(node_modules)/**/*.spec.js'",
-    "test:watch": "NODE_ENV=test mocha './!(node_modules)/**/*.spec.js' --watch"
+    "test:watch": "NODE_ENV=test mocha './!(node_modules)/**/*.spec.js' --watch",
+    "migrate:db": "node ./scripts/migrate-db.js --local"
   },
   "keywords": [
     "node"
@@ -27,9 +28,11 @@
   },
   "dependencies": {
     "joi": "^13.0.2",
+    "knex": "^0.14.2",
     "koa": "^2.4.1",
     "koa-router": "^7.3.0",
     "lodash": "^4.17.4",
+    "pg": "^7.4.0",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
     "winston": "^2.4.0"

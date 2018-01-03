@@ -1,12 +1,14 @@
-'use strict';
+"use strict";
+
 const joi = require('joi');
+const path = require('path');
 
 const envVarsSchema = joi.object({
   NODE_ENV: joi.string()
     .allow(['development', 'production', 'test', 'provision'])
     .required(),
   PORT: joi.string().required(),
-  GITHUB: joi.string().required(),
+  GITHUB: joi.string(),
 }).unknown()
   .required();
 
@@ -19,6 +21,7 @@ const config = {
   env: envVars.NODE_ENV,
   port: envVars.PORT,
   gihub_url: envVars.GITHUB,
+  knexDBParams,
 };
 
 module.exports = config;
